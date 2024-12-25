@@ -16,6 +16,10 @@
 !polybar/
 !polybar/**
 
+#Include the picom folder and its contents
+!picom/
+!picom/**
+
 #Include the tmux folder and its contents
 !tmux/
 !tmux/**
