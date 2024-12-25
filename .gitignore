@@ -12,6 +12,10 @@
 !rofi/
 !rofi/**
 
+#Include the polybar folder and its contents
+!polybar/
+!polybar/**
+
 #Include the tmux folder and its contents
 !tmux/
 !tmux/**
