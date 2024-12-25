@@ -1,0 +1,9 @@
+# Ignore everything in the root folder
+*
+
+# Do not ignore .gitignore itself
+!.gitignore
+
+# Include the i3 folder and its contents
+!i3/
+!i3/**
