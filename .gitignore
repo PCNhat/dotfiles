@@ -8,6 +8,10 @@
 !i3/
 !i3/**
 
+#Include the rofi folder and its contents
+!rofi/
+!rofi/**
+
 #Include the tmux folder and its contents
 !tmux/
 !tmux/**
@@ -15,3 +19,4 @@
 #Include the nvim folder and its contents
 !nvim/
 !nvim/**
+
