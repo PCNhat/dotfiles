@@ -7,3 +7,7 @@
 # Include the i3 folder and its contents
 !i3/
 !i3/**
+
+#Include the tmux folder and its contents
+!tmux/
+!tmux/**
