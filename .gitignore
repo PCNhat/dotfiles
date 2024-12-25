@@ -11,3 +11,7 @@
 #Include the tmux folder and its contents
 !tmux/
 !tmux/**
+
+#Include the nvim folder and its contents
+!nvim/
+!nvim/**
