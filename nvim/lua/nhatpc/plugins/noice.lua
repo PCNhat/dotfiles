@@ -17,6 +17,7 @@ return {
                         view = "cmdline",
                     },
                 },
+                view = "cmdline",
             },
             routes = {
                 {
