@@ -8,15 +8,13 @@ return {
     },
     config = function()
         require("noice").setup({
+            presets = {
+                bottom_search = true, -- use a classic bottom cmdline for search
+                command_palette = false, -- position the cmdline and popupmenu together
+                long_message_to_split = true, -- long messages will be sent to a split
+                inc_rename = false, -- enables an input dialog for inc-rename.nvim
+            },
             cmdline = {
-                format = {
-                    search_down = {
-                        view = "cmdline",
-                    },
-                    search_up = {
-                        view = "cmdline",
-                    },
-                },
                 view = "cmdline",
             },
             routes = {
@@ -27,6 +25,13 @@ return {
                         find = "AutoSave",
                     },
                     opts = { skip = true },
+                },
+                {
+                    filter = {
+                        event = "notify",
+                        min_height = 3,
+                    },
+                    view = "split",
                 },
             },
         })
