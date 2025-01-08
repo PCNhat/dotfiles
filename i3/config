@@ -217,7 +217,7 @@ workspace 9 output DP-1
 for_window [class="^.*"] border pixel 2
 
 # Toggle Polybar when entering or exiting fullscreen
-for_window [class="^.*"] fullscreen_mode toggle exec ~/.config/polybar/toggle_polybar.sh
+# for_window [class="^.*"] fullscreen_mode toggle exec ~/.config/polybar/toggle_polybar.sh
 
 # For screenshots install :
 # apt-get install maim xclip copyq xdotool
@@ -236,7 +236,7 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip
 # Global gaps
 gaps inner 10
 
-gaps top 30
+gaps top 0
 
 # Smart gaps
 smart_gaps off
