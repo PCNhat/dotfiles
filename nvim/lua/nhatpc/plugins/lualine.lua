@@ -79,6 +79,9 @@ return {
                 sections = {
                     lualine_a = {'mode'},
                     lualine_b = {
+                        {
+                            'filename', path = 1,
+                        },
                         'branch',
                         'diff',
                         'diagnostics'
@@ -123,11 +126,6 @@ return {
                 },
                 tabline = {},
                 winbar = {
-                    lualine_b = {
-                        {
-                            'filename', path = 1,
-                        }
-                    },
                 },
                 inactive_winbar = {},
                 extensions = {}
