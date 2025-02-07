@@ -194,7 +194,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # keybinding to lock screen
-bindsym Control+Mod1+l exec "i3lock -c 000000"
+bindsym Control+Mod1+l exec ~/.config/i3/scripts/lock.sh
 
 workspace 1 output DP-1
 workspace 2 output HDMI-5
