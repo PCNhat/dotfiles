@@ -11,6 +11,7 @@ return {
 
         config = function ()
             require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip").filetype_extend("htmldjango", { "html" })
             local ls = require('luasnip')
             vim.keymap.set({"i", "s"}, "<C-l>", function ()
                 if ls.expand_or_jumpable() then
