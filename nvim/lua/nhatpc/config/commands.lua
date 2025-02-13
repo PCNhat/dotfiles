@@ -49,3 +49,8 @@ vim.api.nvim_create_user_command("SetIndentSpace", function(opts)
 
     vim.notify("Set indent to " .. opts.args .. " spaces")
 end, {nargs = '?'})
+
+-- Inspect LSP
+vim.api.nvim_create_user_command("LspInspect", function()
+    vim.notify(vim.inspect(vim.lsp.get_active_clients()))
+end, {})
