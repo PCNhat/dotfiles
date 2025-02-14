@@ -1,0 +1,7 @@
+{
+  "typeCheckingMode": "basic",
+  "useLibraryCodeForTypes": true,
+  "extraPaths": ["./manage.py"],
+  "reportUnknownMemberType": false,
+  "reportAttributeAccessIssue": false
+}
