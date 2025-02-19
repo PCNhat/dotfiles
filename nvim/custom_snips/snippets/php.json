@@ -1,0 +1,11 @@
+{
+    "foreachvalues": {
+        "prefix": "foreachvalues",
+        "body": [
+            "foreach (\\$${1:variable} as \\$${2:item}) {",
+            "\t${0:# code...}",
+            "}"
+        ],
+        "description": "Foreach Values loop"
+    }
+}
