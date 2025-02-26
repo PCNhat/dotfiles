@@ -235,6 +235,9 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip
 # Pause/Play media
 bindsym XF86AudioPlay exec playerctl play-pause
 
+# DND
+bindsym Mod1+s exec --no-startup-id bash ~/.config/polybar/scripts/dnd/dnd_toggle.sh
+
 # Global gaps
 gaps inner 10
 
