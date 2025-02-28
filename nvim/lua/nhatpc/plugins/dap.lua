@@ -99,9 +99,6 @@ return {
           dapui.close()
         end
 
-        vim.keymap.set("n", "<Leader>du", function()
-            require("dapui").toggle()
-        end, { desc = "Toggle Debug UI" })
 
         require("nvim-dap-virtual-text").setup({
             enabled = true, -- enable this plugin (the default)
@@ -137,5 +134,14 @@ return {
             virt_text_win_col = nil, -- position the virtual text at a fixed window column (starting from the first text column) ,
             -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
         })
+
+        vim.keymap.set("n", "<Leader>du", function()
+            require("dapui").toggle()
+        end, { desc = "Toggle Debug UI" })
+
+        vim.keymap.set("n", "<Leader>dk", function()
+            require("dapui").eval()
+        end, { desc = "[DAP] Show evaluate expression" })
+
     end,
 }
