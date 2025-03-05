@@ -36,7 +36,7 @@ return {
                     preference = {'intelephense', 'phpactor'},
                 },
                 highlight = false,
-                separator = "  ",
+                separator = "  ",
                 depth_limit = 0,
                 depth_limit_indicator = "..",
                 safe_output = true,
@@ -77,11 +77,12 @@ return {
                     }
                 },
                 sections = {
-                    lualine_a = {'mode'},
-                    lualine_b = {
+                    lualine_a = {
                         {
                             'filename', path = 1,
                         },
+                    },
+                    lualine_b = {
                         'branch',
                         'diff',
                         'diagnostics'
@@ -110,7 +111,6 @@ return {
                             color = { fg = "#ff9e64" },
                         },
                         'encoding',
-                        'fileformat',
                         'filetype'
                     },
                     lualine_y = {'progress'},
