@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("UIEnter", {
         if vim.fn.glob(cwd .. "/manage.py") ~= "" then
             local pyright_path = cwd .. "/pyrightconfig.json"
             if vim.fn.filereadable(pyright_path) == 0 then
-                vim.fn.system("cp /home/nhatpc/.config/nvim/projects/python/django/pyrightconfig.json " .. pyright_path)
+                vim.fn.system("cp $HOME/.config/nvim/projects/python/django/pyrightconfig.json " .. pyright_path)
             end
         end
     end,
