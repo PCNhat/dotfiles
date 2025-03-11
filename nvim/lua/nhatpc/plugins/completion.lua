@@ -13,6 +13,7 @@ return {
             require("luasnip.loaders.from_vscode").lazy_load()
             require("luasnip.loaders.from_vscode").load({ paths = "~/.config/nvim/custom_snips" })
             require("luasnip").filetype_extend("htmldjango", { "html" })
+            require("luasnip").filetype_extend("mustache", { "html" })
             local ls = require("luasnip")
             vim.keymap.set({ "i", "s" }, "<C-l>", function()
                 if ls.expand_or_jumpable() then
