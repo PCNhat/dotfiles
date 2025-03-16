@@ -9,7 +9,8 @@ return {
                 lua = { "stylua" },
                 php = { "php_cs_fixer" },
                 javascript = { "prettier" },
-                vue = { "prettier" }
+                vue = { "prettier" },
+                htmldjango = {"djlint"}
             },
             -- format_on_save = {
             --     lsp_fallback = true,
