@@ -8,7 +8,12 @@
             {
                 "language": "php",
                 "path": "./snippets/php.json"
+            },
+            {
+                "language": ["htmldjango", "djangohtml"],
+                "path": "./snippets/frameworks/djangohtml.json"
             }
+
         ]
     }
 }

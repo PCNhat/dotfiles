@@ -11,7 +11,11 @@ return {
 
         config = function ()
             require("luasnip.loaders.from_vscode").lazy_load({
-                exclude = { "php" }
+                exclude = {
+                    "php",
+                    "djangohtml",
+                    "htmldjango"
+                }
             })
             require("luasnip.loaders.from_vscode").load({ paths = "~/.config/nvim/custom_snips" })
             require("luasnip").filetype_extend("htmldjango", { "html" })
