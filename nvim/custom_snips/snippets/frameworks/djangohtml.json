@@ -142,7 +142,7 @@
     "static": {
         "prefix": "static",
         "description": "static tag django template",
-        "body": ["{% static \"$1\" %}"]
+        "body": ["{% static '$1' %}"]
     },
     "templatetag": {
         "prefix": "templatetag",
