@@ -24,3 +24,5 @@ vim.opt.list = true
 vim.api.nvim_set_option('listchars', 'space:·')
 
 vim.opt.colorcolumn = "120"
+
+vim.diagnostic.config({ virtual_text = true })
