@@ -20,8 +20,10 @@ vim.opt.incsearch = true
 -- Set list option to display invisible characters
 vim.opt.list = true
 
+vim.api.nvim_set_option("list", true)
 -- Set listchars to display spaces as middle dot
-vim.api.nvim_set_option('listchars', 'space:·')
+-- Set listchars to display tab as ▸
+vim.api.nvim_set_option("listchars", "space:·,tab:▸ ")
 
 vim.opt.colorcolumn = "120"
 
