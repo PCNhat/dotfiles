@@ -1,39 +1,39 @@
 return {
     {
         "SmiteshP/nvim-navic",
-        config = function ()
+        config = function()
             require("nvim-navic").setup({
                 icons = {
-                    File          = "󰈙 ",
-                    Module        = " ",
-                    Namespace     = "󰌗 ",
-                    Package       = " ",
-                    Class         = "󰌗 ",
-                    Method        = "󰆧 ",
-                    Property      = " ",
-                    Field         = " ",
-                    Constructor   = " ",
-                    Enum          = "󰕘",
-                    Interface     = "󰕘",
-                    Function      = "󰊕 ",
-                    Variable      = "󰆧 ",
-                    Constant      = "󰏿 ",
-                    String        = "󰀬 ",
-                    Number        = "󰎠 ",
-                    Boolean       = "◩ ",
-                    Array         = "󰅪 ",
-                    Object        = "󰅩 ",
-                    Key           = "󰌋 ",
-                    Null          = "󰟢 ",
-                    EnumMember    = " ",
-                    Struct        = "󰌗 ",
-                    Event         = " ",
-                    Operator      = "󰆕 ",
+                    File = "󰈙 ",
+                    Module = " ",
+                    Namespace = "󰌗 ",
+                    Package = " ",
+                    Class = "󰌗 ",
+                    Method = "󰆧 ",
+                    Property = " ",
+                    Field = " ",
+                    Constructor = " ",
+                    Enum = "󰕘",
+                    Interface = "󰕘",
+                    Function = "󰊕 ",
+                    Variable = "󰆧 ",
+                    Constant = "󰏿 ",
+                    String = "󰀬 ",
+                    Number = "󰎠 ",
+                    Boolean = "◩ ",
+                    Array = "󰅪 ",
+                    Object = "󰅩 ",
+                    Key = "󰌋 ",
+                    Null = "󰟢 ",
+                    EnumMember = " ",
+                    Struct = "󰌗 ",
+                    Event = " ",
+                    Operator = "󰆕 ",
                     TypeParameter = "󰊄 ",
                 },
                 lsp = {
                     auto_attach = true,
-                    preference = {'intelephense', 'phpactor'},
+                    preference = { "intelephense", "phpactor" },
                 },
                 highlight = false,
                 separator = "  ",
@@ -46,23 +46,36 @@ return {
                     return text
                 end,
             })
-        end
+        end,
     },
     {
-        'nvim-lualine/lualine.nvim',
+        "nvim-lualine/lualine.nvim",
         dependencies = {
-            'nvim-tree/nvim-web-devicons'
+            "nvim-tree/nvim-web-devicons",
         },
 
-        config = function ()
+        config = function()
             local navic = require("nvim-navic")
+            local function lsp_name()
+                local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+                if next(clients) == nil then
+                    return "No LSP"
+                end
+                return " "
+                    .. table.concat(
+                        vim.tbl_map(function(client)
+                            return client.name
+                        end, clients),
+                        ", "
+                    )
+            end
 
-            require('lualine').setup {
+            require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = 'auto',
-                    component_separators = { left = '', right = ''},
-                    section_separators = { left = '', right = ''},
+                    theme = "auto",
+                    component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" },
                     disabled_filetypes = {
                         statusline = {},
                         winbar = {},
@@ -73,19 +86,20 @@ return {
                     refresh = {
                         statusline = 500,
                         tabline = 500,
-                        winbar = 500
-                    }
+                        winbar = 500,
+                    },
                 },
                 sections = {
                     lualine_a = {
                         {
-                            'filename', path = 1,
+                            "filename",
+                            path = 1,
                         },
                     },
                     lualine_b = {
-                        'branch',
-                        'diff',
-                        'diagnostics'
+                        "branch",
+                        "diff",
+                        "diagnostics",
                     },
                     lualine_c = {
                         {
@@ -94,13 +108,13 @@ return {
                             end,
                             cond = function()
                                 return navic.is_available()
-                            end
+                            end,
                         },
                     },
                     lualine_x = {
                         {
                             require("noice").api.statusline.mode.get,
-                            cond = require("noice").api.statusline.mode.has and function ()
+                            cond = require("noice").api.statusline.mode.has and function()
                                 local reg = vim.fn.reg_recording()
                                 if reg == "" then
                                     return false
@@ -110,26 +124,26 @@ return {
                             end,
                             color = { fg = "#ff9e64" },
                         },
-                        'encoding',
-                        'filetype'
+                        "encoding",
+                        lsp_name,
+                        "filetype",
                     },
-                    lualine_y = {'progress'},
-                    lualine_z = {'location'}
+                    lualine_y = { "progress" },
+                    lualine_z = { "location" },
                 },
                 inactive_sections = {
                     lualine_a = {},
                     lualine_b = {},
-                    lualine_c = {'filename'},
-                    lualine_x = {'location'},
+                    lualine_c = { "filename" },
+                    lualine_x = { "location" },
                     lualine_y = {},
-                    lualine_z = {}
+                    lualine_z = {},
                 },
                 tabline = {},
-                winbar = {
-                },
+                winbar = {},
                 inactive_winbar = {},
-                extensions = {}
-                }
-        end
-    }
+                extensions = {},
+            })
+        end,
+    },
 }
