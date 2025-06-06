@@ -63,6 +63,28 @@ return {
                                 return nil
                             end
                         }
+                    end,
+                    ["ts_ls"] = function ()
+                        local lspconfig = require("lspconfig")
+                        lspconfig.ts_ls.setup {
+                            filetypes = { 'typescript', 'javascript', 'vue' },
+                            init_options = {
+                                plugins = {
+                                    {
+                                        name = "@vue/typescript-plugin",
+                                        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+                                        languages = {"javascript", "typescript", "vue"},
+                                    },
+                                },
+                            },
+                            settings = {
+                                volar = {
+                                    experimental = {
+                                        templateInterpolationService = true,
+                                   }
+                                }
+                            }
+                        }
                     end
                 }
             })
