@@ -3,6 +3,11 @@ return {
         "tpope/vim-fugitive",
         config = function ()
             vim.g.fugitive_summary_format = "%cs || %<(20,trunc)%an || %s"
+
+            vim.keymap.set('n', '<leader>gc', ':Gvdiffsplit!<CR>', { desc = '[G]it [C]onflicts diff split', silent = true })
+            vim.keymap.set('n', '<leader>gl', ':diffget //2<CR>', { desc = '[G]it get [L]eft side (//2)', silent = true })
+            vim.keymap.set('n', '<leader>gr', ':diffget //3<CR>', { desc = '[G]it get [R]ight side (//3)', silent = true })
+
         end
     },
     {
