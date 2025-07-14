@@ -40,30 +40,38 @@ return {
                 },
             },
         }
-        vim.keymap.set("n", "<F5>", function()
+
+        vim.keymap.set("n", "<leader>dc", function()
             require("dap").continue()
         end, { desc = "DAP continue" })
-        vim.keymap.set("n", "<F10>", function()
-            require("dap").step_over()
-        end, { desc = "DAP step over" })
-        vim.keymap.set("n", "<F11>", function()
+
+        vim.keymap.set("n", "<leader>di", function()
             require("dap").step_into()
         end, { desc = "DAP step into" })
-        vim.keymap.set("n", "<F12>", function()
+
+        vim.keymap.set("n", "<leader>dI", function()
             require("dap").step_out()
         end, { desc = "DAP step out" })
+
+        vim.keymap.set("n", "<leader>do", function()
+            require("dap").step_over()
+        end, { desc = "DAP step over" })
+
         vim.keymap.set("n", "<Leader>b", function()
             require("dap").toggle_breakpoint()
         end, { desc = "DAP toggle breakpoint" })
+
         vim.keymap.set("n", "<Leader>lp", function()
             require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
         end, { desc = "DAP set breakpoint with message" })
+
         vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
             require("dap.ui.widgets").hover()
-        end, { desc = "DAP continue" })
+        end, { desc = "[DAP] Show evaluate expression in a float window" })
+
         vim.keymap.set({ "n", "v" }, "<Leader>dp", function()
             require("dap.ui.widgets").preview()
-        end, { desc = "DAP continue" })
+        end, { desc = "[DAP] Show evaluate expression in a window" })
 
         require("dapui").setup({
             layouts = {
