@@ -115,7 +115,23 @@ return {
             map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
             -- Find references for the word under your cursor.
-            map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+            vim.keymap.set("n", "gr", function()
+                builtin.lsp_references({
+                    fname_width = 60,
+                    layout_strategy = "vertical",
+                    layout_config = {
+                        vertical = {
+                            width = 0.9,
+                            height = 0.9,
+                            preview_height = 0.6,
+                            preview_cutoff = 0,
+                        },
+                    },
+                })
+            end, { desc = "[G]oto [R]eferences" })
+
+
+
 
             -- Jump to the implementation of the word under your cursor.
             --  Useful when your language has ways of declaring types without an actual implementation.
