@@ -33,3 +33,4 @@
 !gitconfig/
 !gitconfig/**
 
+!24-bit-color.sh
