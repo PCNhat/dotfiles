@@ -112,7 +112,20 @@ return {
 
             -- Jump to the definition of the word under your cursor.
             --  This is where a variable was first declared, or where a function is defined, etc.
-            map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+            vim.keymap.set("n", "gd", function()
+                builtin.lsp_definitions({
+                    fname_width = 60,
+                    layout_strategy = "vertical",
+                    layout_config = {
+                        vertical = {
+                            width = 0.9,
+                            height = 0.9,
+                            preview_height = 0.6,
+                            preview_cutoff = 0,
+                        },
+                    },
+                })
+            end, { desc = "[G]oto [D]efinition" })
 
             -- Find references for the word under your cursor.
             vim.keymap.set("n", "gr", function()
@@ -129,9 +142,6 @@ return {
                     },
                 })
             end, { desc = "[G]oto [R]eferences" })
-
-
-
 
             -- Jump to the implementation of the word under your cursor.
             --  Useful when your language has ways of declaring types without an actual implementation.
