@@ -160,6 +160,15 @@ return {
                 })
             end, "[D]ocument [S]ymbols")
 
+            -- Show only functions
+            map("<leader>df", function()
+                require("telescope.builtin").lsp_document_symbols({
+                    symbol_width = 45,
+                    symbols = { "function", "method" },
+
+                })
+            end, "[D]ocument [F]unctions")
+
             -- Fuzzy find all the symbols in your current workspace.
             --  Similar to document symbols, except searches over your entire project.
             map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
