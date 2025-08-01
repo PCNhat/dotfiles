@@ -70,6 +70,28 @@ return {
                     )
             end
 
+            local function search_result()
+                if vim.v.hlsearch == 0 then
+                    return ""
+                end
+                local ok, result = pcall(function()
+                    local search = vim.fn.getreg("/")
+                    if search == "" then
+                        return ""
+                    end
+                    local total = vim.fn.searchcount({ maxcount = 9999 })
+                    if total.total == 0 then
+                        return ""
+                    end
+                    return string.format("[ %d/%d ]", total.current, total.total)
+                end)
+                if ok then
+                    return result
+                else
+                    return ""
+                end
+            end
+
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
@@ -84,7 +106,7 @@ return {
                     always_divide_middle = true,
                     globalstatus = false,
                     refresh = {
-                        statusline = 500,
+                        statusline = 50,
                         tabline = 500,
                         winbar = 500,
                     },
@@ -125,6 +147,7 @@ return {
                             color = { fg = "#ff9e64" },
                         },
                         "encoding",
+                        search_result,
                         lsp_name,
                         "filetype",
                     },
