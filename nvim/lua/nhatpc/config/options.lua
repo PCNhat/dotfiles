@@ -23,7 +23,7 @@ vim.opt.list = true
 vim.api.nvim_set_option("list", true)
 -- Set listchars to display spaces as middle dot
 -- Set listchars to display tab as ▸
-vim.api.nvim_set_option("listchars", "space:·,tab:▸ ")
+vim.api.nvim_set_option("listchars", "space:·,tab:▸ ,eol:↲")
 
 vim.opt.colorcolumn = "120"
 
