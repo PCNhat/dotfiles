@@ -46,16 +46,25 @@ return {
         config = function()
             -- NOTE: you do not need to call setup if you don't want to.
             require("vague").setup({
-                transparent = true
+                transparent = true,
                 -- optional configuration here
             })
         end,
     },
     {
         "shaunsingh/nord.nvim",
-        config = function ()
+        config = function()
             vim.g.nord_disable_background = true
             vim.g.nord_cursorline_transparent = true
+        end,
+    },
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        config = function ()
+            require("rose-pine").setup({
+                disable_background = true,
+            })
         end
-    }
+    },
 }
