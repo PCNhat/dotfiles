@@ -65,6 +65,6 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>e", ":Neotree left reveal<CR>", { desc = "File Explorer", silent = true })
+        vim.keymap.set("n", "<leader>e", ":Neotree float reveal<CR>", { desc = "File Explorer", silent = true })
     end,
 }

@@ -1,7 +1,7 @@
 return {
     "folke/which-key.nvim",
     dependencies = {
-        "echasnovski/mini.icons"
+        "echasnovski/mini.icons",
     },
     event = "VeryLazy",
     init = function()
@@ -9,33 +9,55 @@ return {
         vim.o.timeoutlen = 300
 
         local wk = require("which-key")
-        wk.register(
-            {
-                -- add group
-                ["<leader>"] = {
-                    c = { desc = "[C]ode" },
-                    d = { desc = "[D]ocument" },
-                    f = { desc = "[F]ind" },
-                    h = {
-                        mode = { "n", "v" },
-                        desc = "Git [H]unk",
-                    },
-                    j = {desc = "[J]ump"},
-                    m = {
-                        mode = { "n", "v" },
-                        desc = "[M]ake",
-                    },
-                    q = { desc = "[Q]uickfix" },
-                    r = { desc = "[R]ename" },
-                    s = {
-                        mode = { "n", "v" };
-                        desc = "[S]earch"
-                    },
-                    t = { desc = "[T]oggle" },
-                    w = { desc = "[W]orkspace" },
-                }
-            }
-        )
+        wk.add({
+            { "<leader>c", group = "[C]ode" },
+            { "<leader>d", group = "[D]ocument" },
+            { "<leader>f", group = "[F]ind" },
+            { "<leader>h", group = "Git [H]unk" },
+            { "<leader>j", group = "[J]ump" },
+            { "<leader>m", group = "[M]ake" },
+            { "<leader>o", group = "[O]pen" },
+            { "<leader>p", group = "[P]roject" },
+            { "<leader>q", group = "[Q]uickfix" },
+            { "<leader>r", group = "[R]eplace, [R]ename" },
+            { "<leader>s", group = "[S]earch" },
+            { "<leader>t", group = "[T]oggle" },
+            { "<leader>w", group = "[W]indow, [W]orkspace" },
+        })
+        -- wk.register({
+        --     ["<leader>"] = {
+        --         c = {
+        --             desc = "[C]ode",
+        --         },
+        --         d = {
+        --             desc = "[D]ocument",
+        --         },
+        --         f = {
+        --             desc = "[F]ind",
+        --         },
+        --         h = {
+        --             desc = "Git [H]unk",
+        --             mode = { "n", "v" },
+        --         },
+        --         j = {
+        --             desc = "[J]ump",
+        --         },
+        --         m = {
+        --             desc = "[M]ake",
+        --             mode = { "n", "v" },
+        --         },
+        --         q = {
+        --             desc = "[Q]uickfix",
+        --         },
+        --         r = {
+        --             desc = "[R]ename",
+        --         },
+        --         s = {
+        --             desc = "[S]earch",
+        --             mode = { "n", "v" },
+        --         },
+        --     },
+        -- })
     end,
 
     opts = {
