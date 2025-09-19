@@ -28,3 +28,4 @@ vim.api.nvim_set_option("listchars", "space:⸱,tab:▸ ,eol:↲")
 vim.opt.colorcolumn = "120"
 
 vim.diagnostic.config({ virtual_text = true })
+vim.opt.guicursor = "a:block"
