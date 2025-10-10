@@ -28,4 +28,12 @@ vim.api.nvim_set_option("listchars", "space:⸱,tab:▸ ,eol:↲")
 vim.opt.colorcolumn = "120"
 
 vim.diagnostic.config({ virtual_text = true })
-vim.opt.guicursor = "a:block"
+
+-- vim.opt.guicursor = "a:block"
+vim.opt.guicursor = {
+  "i-ci-ve:block-CursorInsert/lCursorInsert-blinkon0",
+  "a:block",
+}
+
+vim.api.nvim_set_hl(0, "CursorInsert", { bg = "#c0caf5" })
+
