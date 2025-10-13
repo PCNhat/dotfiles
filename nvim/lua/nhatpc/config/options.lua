@@ -21,6 +21,7 @@ vim.opt.incsearch = true
 vim.opt.list = true
 
 vim.api.nvim_set_option("list", true)
+
 -- Set listchars to display spaces as middle dot
 -- Set listchars to display tab as ▸
 vim.api.nvim_set_option("listchars", "space:⸱,tab:▸ ,eol:↲")
@@ -35,5 +36,5 @@ vim.opt.guicursor = {
   "a:block",
 }
 
-vim.api.nvim_set_hl(0, "CursorInsert", { bg = "#c0caf5" })
+vim.api.nvim_set_hl(0, "CursorInsert", { bg = "#545c7e" })
 
