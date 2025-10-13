@@ -14,3 +14,7 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>ql', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix [L]ist' })
 
 
+vim.keymap.set("n", "<leader>sc", function()
+  local count = vim.fn.searchcount({ recompute = 1, maxcount = 10000 })
+  vim.notify("Total matches: " .. count.total, vim.log.levels.INFO)
+end, { desc = "Show real search count" })
