@@ -36,5 +36,4 @@ vim.opt.guicursor = {
   "a:block",
 }
 
-vim.api.nvim_set_hl(0, "CursorInsert", { bg = "#545c7e" })
-
+vim.api.nvim_set_hl(0, "CursorInsert", { bg = "#dc8a78" })
