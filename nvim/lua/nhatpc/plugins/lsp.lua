@@ -104,6 +104,20 @@ return {
                             end,
                         })
                     end,
+                    ["pylsp"] = function()
+                        local lspconfig = require("lspconfig")
+                        lspconfig.pylsp.setup({
+                            settings = {
+                                pylsp = {
+                                    plugins = {
+                                        pycodestyle = {
+                                            maxLineLength = 120,
+                                        },
+                                    },
+                                },
+                            },
+                        })
+                    end,
                     ["harper_ls"] = function()
                         local lspconfig = require("lspconfig")
                         lspconfig.harper_ls.setup({
