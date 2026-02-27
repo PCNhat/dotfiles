@@ -3,8 +3,11 @@ return {
     main = "ibl",
     opts = {},
 
-    config = function ()
+    config = function()
         require("ibl").setup({
+            indent = {
+                char = "▏", -- Use a thin character
+            },
             scope = {
                 show_start = false,
                 show_end = false,
@@ -20,8 +23,8 @@ return {
                     "TelescopePrompt",
                     "TelescopeResults",
                     "dashboard",
-                }
-            }
+                },
+            },
         })
-    end
+    end,
 }
