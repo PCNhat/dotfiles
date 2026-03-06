@@ -1,183 +1,23 @@
 return {
-    {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+        { "mason-org/mason.nvim", opts = {} },
         "neovim/nvim-lspconfig",
     },
-    {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            local cmp_lsp = require("cmp_nvim_lsp")
-            local capabilities = vim.tbl_deep_extend(
-                "force",
-                {},
-                vim.lsp.protocol.make_client_capabilities(),
-                cmp_lsp.default_capabilities()
-            )
-
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "lua_ls",
-                    "phpactor",
-                    "intelephense",
-                    "vuels",
-                    "ts_ls",
-                    "eslint",
-                    "gopls"
-                },
-                handlers = {
-                    function(server_name)
-                        require("lspconfig")[server_name].setup({
-                            capabilities = capabilities,
-                        })
-                    end,
-
-                    -- Suppress warning: undefined global `vim`
-                    ["lua_ls"] = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.lua_ls.setup({
-                            settings = {
-                                Lua = {
-                                    diagnostics = {
-                                        globals = { "vim" },
-                                    },
-                                },
-                            },
-                        })
-                    end,
-
-                    ["vuels"] = function()
-                        local util = require("lspconfig.util")
-                        local function has_tsconfig(root_dir)
-                            return vim.fn.filereadable(root_dir .. "/tsconfig.json") == 1
-                        end
-
-                        local lspconfig = require("lspconfig")
-                        lspconfig.vuels.setup({
-                            root_dir = function(fname)
-                                local root = util.root_pattern("package.json", ".git")(fname)
-                                if root and not has_tsconfig(root) then
-                                    return root
-                                end
-                                return nil
-                            end,
-                        })
-                    end,
-                    ["ts_ls"] = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.ts_ls.setup({
-                            filetypes = { "typescript", "javascript", "vue" },
-                            init_options = {
-                                plugins = {
-                                    {
-                                        name = "@vue/typescript-plugin",
-                                        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-                                        languages = { "javascript", "typescript", "vue" },
-                                    },
-                                },
-                            },
-                            settings = {
-                                volar = {
-                                    experimental = {
-                                        templateInterpolationService = true,
-                                    },
-                                },
-                            },
-                        })
-                    end,
-                    ["eslint"] = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.eslint.setup({
-                            settings = {
-                                format = true,
-                            },
-                            on_attach = function(client, bufnr)
-                                -- Optional: run ESLint autofix on save
-                                -- vim.api.nvim_create_autocmd("BufWritePre", {
-                                --     buffer = bufnr,
-                                --     command = "EslintFixAll",
-                                -- })
-                            end,
-                        })
-                    end,
-                    ["pylsp"] = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.pylsp.setup({
-                            settings = {
-                                pylsp = {
-                                    plugins = {
-                                        pycodestyle = {
-                                            maxLineLength = 120,
-                                        },
-                                    },
-                                },
-                            },
-                        })
-                    end,
-                    ["harper_ls"] = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.harper_ls.setup({
-                            settings = {
-                                ["harper-ls"] = {
-                                    userDictPath = "",
-                                    workspaceDictPath = "",
-                                    fileDictPath = "",
-                                    linters = {
-                                        SpellCheck = true,
-                                        SpelledNumbers = false,
-                                        AnA = true,
-                                        SentenceCapitalization = false,
-                                        UnclosedQuotes = true,
-                                        WrongQuotes = false,
-                                        LongSentences = true,
-                                        RepeatedWords = true,
-                                        Spaces = true,
-                                        Matcher = true,
-                                        CorrectNumberSuffix = true,
-                                    },
-                                    codeActions = {
-                                        ForceStable = false,
-                                    },
-                                    markdown = {
-                                        IgnoreLinkTitle = false,
-                                    },
-                                    diagnosticSeverity = "hint",
-                                    isolateEnglish = false,
-                                    dialect = "American",
-                                    maxFileLength = 120000,
-                                },
-                            },
-                        })
-                    end
-                },
-            })
-
-            vim.lsp.set_log_level("off")
-        end,
-    },
-    {
-        "j-hui/fidget.nvim",
-        config = function()
-            require("fidget").setup({})
-        end,
-    },
-    {
-        "jay-babu/mason-null-ls.nvim",
-        dependencies = {
-            "nvimtools/none-ls.nvim",
-        },
-        config = function()
-            require("mason-null-ls").setup({
-                ensure_installed = {
-                    "stylua",
-                    "jq",
-                    "php-cs-fixer",
-                },
-            })
-        end,
-    },
+    config = function()
+        require("mason-lspconfig").setup {
+            automatic_installation = true,
+            ensure_installed = {
+                "lua_ls",
+                "phpactor",
+                "intelephense",
+                "vuels",
+                "ts_ls",
+                "eslint",
+                "gopls",
+                "pyright",
+            },
+        }
+    end
 }

@@ -7,7 +7,7 @@ return {
 
         config = function()
             local function lsp_name()
-                local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+                local clients = vim.lsp.get_clients({ bufnr = 0 })
                 if next(clients) == nil then
                     return "No LSP"
                 end

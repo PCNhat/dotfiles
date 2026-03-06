@@ -38,4 +38,4 @@ local config = {
 
 jdtls.start_or_attach(config)
 jdtls.setup_dap({ hotcodereplace = "auto" })
--- jdtls.setup_dap_main_class_configs()
+jdtls.setup_dap_main_class_configs()
