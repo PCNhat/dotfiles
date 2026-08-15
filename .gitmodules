@@ -1,0 +1,21 @@
+[submodule "nvim"]
+	path = nvim
+	url = git@github.com:PCNhat/nvim.git
+[submodule "i3"]
+	path = i3
+	url = git@github.com:PCNhat/i3.git
+[submodule "tmux"]
+	path = tmux
+	url = git@github.com:PCNhat/tmux.git
+[submodule "rofi"]
+	path = rofi
+	url = git@github.com:PCNhat/rofi.git
+[submodule "polybar"]
+	path = polybar
+	url = git@github.com:PCNhat/polybar.git
+[submodule "picom"]
+	path = picom
+	url = git@github.com:PCNhat/picom.git
+[submodule "gitconfig"]
+	path = gitconfig
+	url = git@github.com:PCNhat/gitconfig.git

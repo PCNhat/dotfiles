@@ -1,3 +1,0 @@
-#!/bin/bash
-feh --bg-scale '/home/nhatpc/Pictures/bg.png'
-picom --experimental-backends
